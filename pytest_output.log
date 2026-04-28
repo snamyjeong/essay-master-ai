@@ -1,0 +1,69 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.0.3, pluggy-1.6.0
+rootdir: /home/snamy78/essay-master-ai
+plugins: langsmith-0.7.36, anyio-4.13.0
+collected 1 item
+
+backend/app/tests/test_main.py .
+
+=============================== warnings summary ===============================
+backend/app/core/config.py:9
+  /home/snamy78/essay-master-ai/backend/app/core/config.py:9: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class Settings(BaseSettings):
+
+backend/app/schemas/auth.py:16
+  /home/snamy78/essay-master-ai/backend/app/schemas/auth.py:16: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class UserResponse(UserBase):
+
+backend/app/schemas/documents.py:22
+  /home/snamy78/essay-master-ai/backend/app/schemas/documents.py:22: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class DocumentResponse(DocumentBase):
+
+backend/app/schemas/documents.py:38
+  /home/snamy78/essay-master-ai/backend/app/schemas/documents.py:38: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    id: str = Field(..., example="doc_123", description="처리된 문서의 고유 ID (UUID)") # 문서의 고유 ID
+
+backend/app/schemas/documents.py:39
+  /home/snamy78/essay-master-ai/backend/app/schemas/documents.py:39: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    filename: str = Field(..., example="my_document.pdf", description="업로드된 파일명") # 원본 파일명
+
+backend/app/schemas/documents.py:40
+  /home/snamy78/essay-master-ai/backend/app/schemas/documents.py:40: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    status: str = Field(..., example="success", description="문서 처리 상태 (예: success, failed)") # 처리 상태
+
+backend/app/schemas/documents.py:41
+  /home/snamy78/essay-master-ai/backend/app/schemas/documents.py:41: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    message: str = Field(..., example="문서가 성공적으로 업로드 및 처리되었습니다.", description="처리 결과 메시지") # 상세 메시지
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.MessageMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: Type google._upb._message.ScalarMapContainer uses PyType_Spec with a metaclass that has custom tp_new. This is deprecated and will no longer be allowed in Python 3.14.
+
+backend/app/schemas/essay_generation.py:34
+  /home/snamy78/essay-master-ai/backend/app/schemas/essay_generation.py:34: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class GenerationResultResponse(BaseModel):
+
+backend/app/schemas/essay_generation.py:46
+  /home/snamy78/essay-master-ai/backend/app/schemas/essay_generation.py:46: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class EssayResponse(EssayBase):
+
+backend/app/schemas/history.py:24
+  /home/snamy78/essay-master-ai/backend/app/schemas/history.py:24: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class QuizResultResponse(QuizResultBase):
+
+backend/app/schemas/history.py:49
+  /home/snamy78/essay-master-ai/backend/app/schemas/history.py:49: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class TypingRecordResponse(TypingRecordBase):
+
+backend/app/schemas/quizzes.py:21
+  /home/snamy78/essay-master-ai/backend/app/schemas/quizzes.py:21: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class QuizGenerationRequest(BaseModel):
+
+../miniconda3/envs/essay-master/lib/python3.12/site-packages/pypdf/_crypt_providers/_cryptography.py:32
+  /home/snamy78/miniconda3/envs/essay-master/lib/python3.12/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+    from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 15 warnings in 5.04s ========================

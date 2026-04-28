@@ -1,0 +1,16 @@
+2026-04-27 06:38:26,544 - app.core.logging - INFO - 로깅 시스템 초기화 완료.
+2026-04-27 06:38:26,566 - uvicorn.error - INFO - Started server process [391236]
+2026-04-27 06:38:26,567 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-27 06:38:26,573 - uvicorn.error - INFO - Application startup complete.
+2026-04-27 06:38:46,551 - uvicorn.error - INFO - Shutting down
+2026-04-27 06:38:46,652 - uvicorn.error - INFO - Waiting for application shutdown.
+2026-04-27 06:38:46,652 - uvicorn.error - INFO - Application shutdown complete.
+2026-04-27 06:38:46,653 - uvicorn.error - INFO - Finished server process [391236]
+2026-04-27 06:38:53,390 - app.core.logging - INFO - 로깅 시스템 초기화 완료.
+2026-04-27 06:38:53,426 - uvicorn.error - INFO - Started server process [391418]
+2026-04-27 06:38:53,426 - uvicorn.error - INFO - Waiting for application startup.
+2026-04-27 06:38:53,434 - uvicorn.error - INFO - Application startup complete.
+2026-04-27 06:41:09,632 - uvicorn.error - INFO - Shutting down
+2026-04-27 06:41:09,733 - uvicorn.error - INFO - Waiting for application shutdown.
+2026-04-27 06:41:09,734 - uvicorn.error - INFO - Application shutdown complete.
+2026-04-27 06:41:09,734 - uvicorn.error - INFO - Finished server process [391418]

@@ -1,0 +1,48 @@
+# FastAPI 애플리케이션의 핵심 프레임워크
+fastapi==0.111.0
+
+# FastAPI 서버 (비동기 웹 서버)
+uvicorn[standard]==0.29.0
+
+# JWT (JSON Web Token) 처리 라이브러리
+# 'jose'는 python-jose 패키지에서 제공됩니다.
+python-jose[cryptography]==3.3.0
+
+# 데이터 유효성 검사 및 설정 관리를 위한 라이브러리 (FastAPI의 핵심 의존성)
+pydantic==2.7.1
+
+# CORS 미들웨어를 위한 Starlette 의존성
+starlette==0.37.2
+
+# 비동기 데이터베이스 작업을 위한 SQLAlchemy ORM
+# 현재 코드에는 없지만, 일반적인 FastAPI 백엔드에 필요
+SQLAlchemy==2.0.29
+
+# PostgreSQL 데이터베이스 연결 드라이버
+# 현재 코드에는 없지만, 일반적인 FastAPI 백엔드에 필요
+psycopg2-binary==2.9.9
+
+# 데이터베이스 마이그레이션 도구
+# 현재 코드에는 없지만, 일반적인 FastAPI 백엔드에 필요
+alembic==1.13.1
+
+# pytest: 테스트 프레임워크
+pytest==8.2.0
+
+# python-multipart: 파일 업로드 처리에 필요 (FastAPI 의존성)
+python-multipart==0.0.9
+
+# email-validator: 이메일 유효성 검사에 필요 (FastAPI 의존성)
+email-validator==2.1.1
+
+# passlib: 비밀번호 해싱에 필요 (FastAPI 의존성)
+passlib[bcrypt]==1.7.4
+
+# Celery: 비동기 작업 큐 (Redis를 브로커로 사용)
+celery==5.3.6
+
+# Redis 클라이언트 (Celery 브로커 및 FastAPI 캐시로 사용)
+redis==5.0.1
+
+# Pydantic-settings: 설정 관리에 유용
+pydantic-settings==2.2.1

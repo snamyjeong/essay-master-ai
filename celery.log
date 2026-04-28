@@ -1,0 +1,2 @@
+/tmp/tmpw21lq653: line 17: celery: command not found
+ERROR conda.cli.main_run:execute(142): `conda run celery -A backend.app.worker.celery_worker worker --loglevel=info` failed. (See above for error)

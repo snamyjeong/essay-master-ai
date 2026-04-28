@@ -1,0 +1,4 @@
+frontend_nextjs/node_modules/
+frontend_nextjs/.next/
+backend/.env
+frontend_nextjs/

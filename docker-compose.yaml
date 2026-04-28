@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend # backend 디렉토리에서 Dockerfile 빌드
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8000" # 호스트 8001 -> 컨테이너 8000 (FastAPI 기본 포트)
+    env_file:
+      - ./.env # .env 파일에서 환경 변수 로드
+    volumes:
+      - ./backend:/app # 소스 코드 마운트 (개발 중 코드 변경 실시간 반영)
+      - ./chroma_db:/app/chroma_db # ChromaDB 데이터 볼륨 마운트
+    depends_on:
+      - db # PostgreSQL 서비스가 먼저 시작되어야 함
+      - chromadb # ChromaDB 서비스가 먼저 시작되어야 함
+    command: sh -c "python -m alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000" # Alembic 마이그레이션 후 FastAPI 실행
+
+  frontend:
+    build:
+      context: ./frontend # frontend 디렉토리에서 Dockerfile 빌드
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Next.js 기본 포트
+    env_file:
+      - ./.env # .env 파일에서 환경 변수 로드
+    volumes:
+      - ./frontend:/app # 소스 코드 마운트
+    depends_on:
+      - backend # 백엔드 서비스가 먼저 시작되어야 함
+
+  db:
+    image: postgres:15-alpine # PostgreSQL 15 버전 (alpine 이미지로 경량화)
+    ports:
+      - "5433:5432" # 호스트 5433 -> 컨테이너 5432 (PostgreSQL 기본 포트)
+    env_file:
+      - ./.env # .env 파일에서 환경 변수 로드 (POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB)
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # PostgreSQL 데이터 영구 저장을 위한 볼륨
+
+  chromadb:
+    image: ghcr.io/chroma-core/chroma:latest # ChromaDB 최신 이미지
+    ports:
+      - "8000:8000" # ChromaDB 기본 포트 (FastAPI와 충돌 방지를 위해 호스트 포트 변경 필요 시 설정)
+    volumes:
+      - chroma_data:/chroma # ChromaDB 데이터 영구 저장을 위한 볼륨
+    command: ["uvicorn", "chroma.app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+    
+volumes:
+  postgres_data: # PostgreSQL 데이터 볼륨 정의
+  chroma_data: # ChromaDB 데이터 볼륨 정의
