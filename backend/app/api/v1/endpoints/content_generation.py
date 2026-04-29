@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends # FastAPI의 핵심 통제 모듈 임포트
 from typing import List # 리스트 타입 힌트를 위한 모듈
-from app.services.quiz_generator import QuizGenerator # 위에서 수정한 퀴즈 엔진 임포트
-from app.schemas.quizzes import QuizGenerationRequest, QuizQuestion # 퀴즈 데이터 규격 임포트
+from backend.app.services.quiz_generator import QuizGenerator # 위에서 수정한 퀴즈 엔진 임포트
+from backend.app.schemas.quizzes import QuizGenerationRequest, QuizQuestion # 퀴즈 데이터 규격 임포트
 
 router = APIRouter() # '/api/v1/content' 하위 경로를 관리할 라우터 객체 생성
 

@@ -1,10 +1,10 @@
 # backend/app/api/v1/users.py
 from fastapi import APIRouter, Depends # FastAPI 라우터 및 의존성 주입 도구 임포트
-from sqlalchemy.orm import Session # 동기식 데이터베이스 세션 타입을 위한 임포트
+from sqlalchemy.ext.asyncio import AsyncSession # [교정] 비동기 세션 타입을 사용하도록 변경합니다.
 
-from app.api import deps # [핵심] 우리가 방금 수정한 get_current_user가 들어있는 곳입니다.
-from app.db.models import User # 데이터베이스의 User 모델 임포트
-from app.schemas.auth import UserResponse # 클라이언트 응답용 데이터 규격 임포트
+from backend.app.api import deps # [교정] 인증 의존성 함수를 절대 경로를 통해 안전하게 가져옵니다.
+from backend.app.db.models import User # [교정] User 모델을 절대 경로를 통해 정확하게 매핑합니다.
+from backend.app.schemas.auth import UserResponse # [교정] 응답용 데이터 스키마를 절대 경로로 불러옵니다.
 
 # APIRouter 인스턴스를 생성하여 사용자 관련 경로를 관리합니다.
 router = APIRouter()

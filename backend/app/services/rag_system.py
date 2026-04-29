@@ -11,7 +11,7 @@ from langchain_chroma import Chroma
 from dotenv import load_dotenv 
 load_dotenv() 
 
-# from app.core.config import settings # [제거] 설정값을 가져오기 위해 settings 임포트 (다시 PersistentClient 사용하므로 필요 없음)
+# from backend.app.core.config import settings # [제거] 설정값을 가져오기 위해 settings 임포트 (다시 PersistentClient 사용하므로 필요 없음)
 
 GOOGLE_API_KEY = (os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY") or "").strip()
 

@@ -1,5 +1,5 @@
 from celery import Celery # Celery 라이브러리 임포트
-from app.core.config import settings # 프로젝트 설정값 임포트
+from backend.app.core.config import settings # 프로젝트 설정값 임포트
 
 # Celery 애플리케이션 인스턴스를 생성합니다.
 # 'main'은 Celery 앱의 이름이며, 일반적으로 모듈 이름과 동일하게 설정합니다.

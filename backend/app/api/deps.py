@@ -6,11 +6,11 @@ from jose import jwt, JWTError # JWT 토큰 해독을 위한 라이브러리
 from sqlalchemy.ext.asyncio import AsyncSession # [수정] 비동기식 DB 세션 타입
 from sqlalchemy import select # [추가] 비동기 쿼리를 위한 select 임포트
 
-from app.core.config import settings # 시스템 설정 (SECRET_KEY 등)
-from app.core import security # 보안 유틸리티
-from app.db.database import AsyncSessionLocal # [수정] 비동기 DB 세션 팩토리 임포트
-from app.db.models import User # 사용자 DB 모델
-from app.schemas.auth import TokenData # 토큰 데이터 규격
+from backend.app.core.config import settings # [교정] 프로젝트 루트 기준 절대 경로로 수정하여 경로 이탈 방지
+from backend.app.core import security # [교정] 보안 유틸리티 절대 경로로 수정
+from backend.app.db.database import AsyncSessionLocal # [교정] 비동기 세션 팩토리 절대 경로로 수정
+from backend.app.db.models import User # [교정] 유저 모델 절대 경로로 수정
+from backend.app.schemas.auth import TokenData # [교정] 토큰 규격 절대 경로로 수정
 
 # 토큰을 추출할 API 경로를 지정합니다. (Swagger UI에서 인증 버튼 활성화용)
 reusable_oauth2 = OAuth2PasswordBearer(

@@ -5,8 +5,8 @@
 import pytest # pytest 프레임워크 임포트
 from fastapi.testclient import TestClient # FastAPI 테스트 클라이언트 임포트
 from sqlalchemy.ext.asyncio import AsyncSession # 비동기 DB 세션 타입 임포트
-from app.db.models import User # 사용자 DB 모델 임포트
-from app.core import security # 보안 유틸리티 (비밀번호 해싱 등) 임포트
+from backend.app.db.models import User # 사용자 DB 모델 임포트
+from backend.app.core import security # 보안 유틸리티 (비밀번호 해싱 등) 임포트
 
 # TestClient 인스턴스는 conftest.py에서 fixture로 제공됩니다.
 # db_session fixture는 각 테스트 함수가 호출될 때마다 독립적인 DB 세션을 제공합니다.

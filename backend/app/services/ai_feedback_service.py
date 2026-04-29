@@ -5,7 +5,7 @@ from typing import List, Dict, Any # 타입 힌트 사용을 위한 임포트
 from datetime import datetime, timedelta # 날짜 및 시간 계산을 위한 임포트
 
 from sqlalchemy.orm import Session # 데이터베이스 세션 관리를 위한 임포트
-from app.models.history import QuizResult, TypingRecord # 모델 임포트
+from backend.app.models.history import QuizResult, TypingRecord # 모델 임포트
 
 import google.generativeai as genai # Gemini API 사용을 위한 임포트
 

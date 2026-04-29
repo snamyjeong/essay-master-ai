@@ -3,9 +3,8 @@
 
 import os
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
-from sqlalchemy.orm import declarative_base
 
-from app.core.config import settings # 설정값을 가져오기 위해 settings 임포트
+from backend.app.core.config import settings # 설정값을 가져오기 위해 settings 임포트
 
 # SQLAlchemy 비동기 엔진을 생성합니다.
 # settings.SQLALCHEMY_DATABASE_URL을 사용하여 데이터베이스 URL을 가져옵니다.
@@ -20,9 +19,6 @@ engine = create_async_engine(
     echo=True,
     connect_args=connect_args # 조건부 connect_args 적용
 )
-
-# SQLAlchemy ORM 모델의 기본 클래스를 선언합니다.
-Base = declarative_base()
 
 # 비동기 세션 생성을 위한 팩토리를 정의합니다.
 AsyncSessionLocal = async_sessionmaker(autocommit=False, autoflush=False, bind=engine, class_=AsyncSession)

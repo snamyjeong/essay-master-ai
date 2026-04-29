@@ -308,3 +308,35 @@ WHERE users.username = ?
 2026-04-28 14:34:25,710 - backend.app.main - INFO - [User ID: anonymous] Request: GET /openapi.json finished in 0.0009s. Status: 200
 2026-04-28 14:34:42,915 - backend.app.main - INFO - [User ID: anonymous] Request: GET /docs finished in 0.0006s. Status: 200
 2026-04-28 14:34:43,195 - backend.app.main - INFO - [User ID: anonymous] Request: GET /openapi.json finished in 0.0012s. Status: 200
+2026-04-29 02:12:10,339 - backend.app.core.logging - INFO - 로깅 시스템 초기화 완료: '/home/snamy78/essay-master-ai/backend/app/logging.conf'에서 설정 로드.
+2026-04-29 02:12:10,371 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 시작.
+2026-04-29 02:13:06,731 - backend.app.main - INFO - [User ID: anonymous] Request: GET /doc finished in 0.0009s. Status: 404
+2026-04-29 02:14:36,154 - backend.app.main - INFO - [User ID: anonymous] Request: GET /docs finished in 0.0008s. Status: 200
+2026-04-29 02:14:36,750 - backend.app.main - INFO - [User ID: anonymous] Request: GET /openapi.json finished in 0.0312s. Status: 200
+2026-04-29 02:14:56,016 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-29 02:14:56,023 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2026-04-29 02:20:25,316 - backend.app.core.logging - INFO - 로깅 시스템 초기화 완료: '/home/snamy78/essay-master-ai/backend/app/logging.conf'에서 설정 로드.
+2026-04-29 02:20:25,344 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 시작.
+2026-04-29 02:20:32,997 - backend.app.main - INFO - [User ID: anonymous] Request: GET /docs finished in 0.0008s. Status: 200
+2026-04-29 02:20:33,363 - backend.app.main - INFO - [User ID: anonymous] Request: GET /openapi.json finished in 0.0233s. Status: 200
+2026-04-29 02:20:51,260 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-29 02:20:51,518 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2026-04-29 02:40:57,125 - backend.app.core.logging - INFO - 로깅 시스템 초기화 완료: '/home/snamy78/essay-master-ai/backend/app/logging.conf'에서 설정 로드.
+2026-04-29 02:40:57,155 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 시작.
+2026-04-29 02:41:01,705 - backend.app.main - INFO - [User ID: anonymous] Request: GET /docs finished in 0.0008s. Status: 200
+2026-04-29 02:41:02,136 - backend.app.main - INFO - [User ID: anonymous] Request: GET /openapi.json finished in 0.0278s. Status: 200
+2026-04-29 02:41:20,121 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-29 02:41:20,148 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.username, users.email, users.hashed_password, users.is_active, users.is_superuser, users.membership_type, users.membership_start_date, users.membership_end_date, users.point_balance, users.created_at, users.updated_at, users.refresh_token, users.refresh_token_expires_at, documents_1.id AS id_1, documents_1.user_id, documents_1.title, documents_1.content, documents_1.chroma_collection_name, documents_1.uploaded_at, quiz_results_1.id AS id_2, quiz_results_1.user_id AS user_id_1, quiz_results_1.document_id, quiz_results_1.quiz_type, quiz_results_1.question_text, quiz_results_1.user_answer, quiz_results_1.correct_answer, quiz_results_1.score, quiz_results_1.attempted_at, typing_records_1.id AS id_3, typing_records_1.user_id AS user_id_2, typing_records_1.document_id AS document_id_1, typing_records_1.sentence_content, typing_records_1.user_input, typing_records_1.wpm, typing_records_1.accuracy, typing_records_1.difficulty, typing_records_1.attempted_at AS attempted_at_1 
+FROM users LEFT OUTER JOIN documents AS documents_1 ON users.id = documents_1.user_id LEFT OUTER JOIN quiz_results AS quiz_results_1 ON users.id = quiz_results_1.user_id LEFT OUTER JOIN typing_records AS typing_records_1 ON users.id = typing_records_1.user_id 
+WHERE users.username = ?
+2026-04-29 02:41:20,149 - sqlalchemy.engine.Engine - INFO - [generated in 0.00078s] ('snamy78@gmail.com',)
+2026-04-29 02:41:20,210 - sqlalchemy.engine.Engine - INFO - UPDATE users SET updated_at=CURRENT_TIMESTAMP, refresh_token=?, refresh_token_expires_at=? WHERE users.id = ?
+2026-04-29 02:41:20,210 - sqlalchemy.engine.Engine - INFO - [generated in 0.00043s] ('$pbkdf2-sha256$29000$oBTi3JvTem.tFUIIoXSulQ$9uEAGEfZEUATQIDeFUjnwnuxLJSmh.V94aJQB3CgWqs', '2026-05-29 02:41:20.207447', 1)
+2026-04-29 02:41:20,212 - sqlalchemy.engine.Engine - INFO - COMMIT
+2026-04-29 02:41:20,221 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-29 02:41:20,465 - sqlalchemy.engine.Engine - INFO - SELECT users.id, users.username, users.email, users.hashed_password, users.is_active, users.is_superuser, users.membership_type, users.membership_start_date, users.membership_end_date, users.point_balance, users.created_at, users.updated_at, users.refresh_token, users.refresh_token_expires_at, documents_1.id AS id_1, documents_1.user_id, documents_1.title, documents_1.content, documents_1.chroma_collection_name, documents_1.uploaded_at, quiz_results_1.id AS id_2, quiz_results_1.user_id AS user_id_1, quiz_results_1.document_id, quiz_results_1.quiz_type, quiz_results_1.question_text, quiz_results_1.user_answer, quiz_results_1.correct_answer, quiz_results_1.score, quiz_results_1.attempted_at, typing_records_1.id AS id_3, typing_records_1.user_id AS user_id_2, typing_records_1.document_id AS document_id_1, typing_records_1.sentence_content, typing_records_1.user_input, typing_records_1.wpm, typing_records_1.accuracy, typing_records_1.difficulty, typing_records_1.attempted_at AS attempted_at_1 
+FROM users LEFT OUTER JOIN documents AS documents_1 ON users.id = documents_1.user_id LEFT OUTER JOIN quiz_results AS quiz_results_1 ON users.id = quiz_results_1.user_id LEFT OUTER JOIN typing_records AS typing_records_1 ON users.id = typing_records_1.user_id 
+WHERE users.id = ?
+2026-04-29 02:41:20,465 - sqlalchemy.engine.Engine - INFO - [generated in 0.00042s] (1,)
+2026-04-29 02:41:20,468 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2026-04-29 02:41:20,470 - backend.app.main - INFO - [User ID: invalid_token] Request: POST /api/v1/auth/login finished in 0.3550s. Status: 200

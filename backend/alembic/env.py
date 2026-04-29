@@ -22,11 +22,11 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 # 'autogenerate' 지원을 위해 여기에 모델의 MetaData 객체를 추가합니다.
-from app.core.config import settings
-from app.db.base import Base
+from backend.app.core.config import settings
+from backend.app.db.base import Base
 
 # app.db.models의 모든 모델들을 임포트
-from app.db.models import User, Document, QuizResult, TypingRecord
+from backend.app.db.models import User, Document, QuizResult, TypingRecord
 
 target_metadata = Base.metadata
 

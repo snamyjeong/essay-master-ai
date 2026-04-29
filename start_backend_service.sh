@@ -2,7 +2,7 @@
 # start_backend_service.sh - Jarvis 백엔드 및 워커 통합 기동 스크립트
 
 # 1. 환경 및 경로 설정: Python이 프로젝트 구조를 올바르게 인식하도록 합니다.
-export PYTHONPATH="$(pwd):$(pwd)/backend:$PYTHONPATH" # 현재 폴더와 backend 폴더를 경로에 등록합니다.
+export PYTHONPATH="$(pwd):$PYTHONPATH" # 현재 폴더와 backend 폴더를 경로에 등록합니다.
 DB_ABS_DIR="$(pwd)/app_data" # 데이터베이스가 저장될 경로를 변수로 설정합니다.
 export DATABASE_URL="sqlite+aiosqlite:///${DB_ABS_DIR}/jarvis_neo.db" # 애플리케이션용 DB 접속 정보를 환경 변수로 보냅니다.
 
@@ -22,7 +22,7 @@ tmux new-session -d -s backend # 백그라운드 세션을 생성합니다.
 tmux send-keys -t backend "eval \"\$(conda shell.zsh hook)\"" C-m # Conda 사용을 위한 훅을 로드합니다.
 tmux send-keys -t backend "conda activate essay-master" C-m # 전용 가상환경을 활성화합니다.
 tmux send-keys -t backend "export DATABASE_URL='${DATABASE_URL}'" C-m # 내부에서 쓸 DB 경로를 설정합니다.
-tmux send-keys -t backend "export PYTHONPATH='$(pwd):$(pwd)/backend'" C-m # 내부용 Python 경로를 설정합니다.
+tmux send-keys -t backend "export PYTHONPATH='$(pwd)'" C-m # 내부용 Python 경로를 설정합니다.
 tmux send-keys -t backend "python3 -m uvicorn backend.app.main:app --host 0.0.0.0 --port 8000" C-m # 서버를 가동합니다.
 
 # 5. 워커(Celery) 시작 시퀀스
@@ -31,7 +31,7 @@ tmux new-session -d -s celery # 워커용 백그라운드 세션을 생성합니
 tmux send-keys -t celery "eval \"\$(conda shell.zsh hook)\"" C-m # Conda 훅 로드
 tmux send-keys -t celery "conda activate essay-master" C-m # 가상환경 활성화
 tmux send-keys -t celery "export DATABASE_URL='${DATABASE_URL}'" C-m # DB 경로 주입
-tmux send-keys -t celery "export PYTHONPATH='$(pwd):$(pwd)/backend'" C-m # 경로 설정
+tmux send-keys -t celery "export PYTHONPATH='$(pwd)'" C-m # 경로 설정
 tmux send-keys -t celery "celery -A backend.app.worker.celery_worker worker --loglevel=info" C-m # 워커 실행
 
 # 6. 최종 상태 확인 및 결과 출력 (성남 님 요청 양식 적용)

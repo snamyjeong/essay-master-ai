@@ -1,7 +1,7 @@
 # backend/app/services/point_manager.py
 from sqlalchemy.orm import Session # 데이터베이스 세션 관리를 위한 임포트
-from app.db.models import User # 사용자 모델 임포트 (경로 수정)
-from app.models.history import QuizResult, TypingRecord # 퀴즈 결과 및 타자 기록 모델 임포트 (경로 수정)
+from backend.app.db.models import User # 사용자 모델 임포트 (경로 수정)
+from backend.app.schemas.history import QuizResult, TypingRecord # 퀴즈 결과 및 타자 기록 모델 임포트 (경로 수정)
 
 class PointManager:
     """

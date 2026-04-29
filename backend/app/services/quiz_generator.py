@@ -2,8 +2,8 @@ import os # 운영체제 리소스 및 경로 접근을 위한 모듈 임포트
 import json # AI 응답 문자열을 파이썬 객체로 변환하기 위한 JSON 처리 모듈 임포트
 from typing import List, Optional # 정적 타입 검사 및 가독성을 위한 타입 힌트 임포트
 from langchain_google_genai import ChatGoogleGenerativeAI # [교정] 구형 SDK 대신 랭체인 기반 제미나이 엔진 임포트
-from app.core.config import settings # 시스템 전역 설정(API 키 등)을 참조하기 위한 임포트
-from app.schemas.quizzes import QuizQuestion, QuizType # 퀴즈 데이터 구조 및 타입을 정의한 스키마 임포트
+from backend.app.core.config import settings # 시스템 전역 설정(API 키 등)을 참조하기 위한 임포트
+from backend.app.schemas.quizzes import QuizQuestion, QuizType # 퀴즈 데이터 구조 및 타입을 정의한 스키마 임포트
 
 class QuizGenerator:
     """

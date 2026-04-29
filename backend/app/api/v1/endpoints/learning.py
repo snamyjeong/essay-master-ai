@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File # FastAPI 구성 요소 및 파일 업로드 처리를 위한 임포트
 from sqlalchemy.orm import Session # 데이터베이스 세션 처리를 위한 SQLAlchemy 임포트
-from app.api.deps import get_db, get_current_user # DB 세션 및 현재 사용자 획득을 위한 의존성 주입 함수 임포트
-from app.services.rag_learning_service import rag_learning_service # RAG 지식 저장 및 PDF 처리를 위한 서비스 임포트
-from app.db.models import User # 사용자 모델 임포트
-from app.services.quiz_service import QuizGenerationService # AI 강사 페르소나의 퀴즈 생성 서비스 임포트
+from backend.app.api.deps import get_db, get_current_user # DB 세션 및 현재 사용자 획득을 위한 의존성 주입 함수 임포트
+from backend.app.services.rag_learning_service import rag_learning_service # RAG 지식 저장 및 PDF 처리를 위한 서비스 임포트
+from backend.app.db.models import User # 사용자 모델 임포트
+from backend.app.services.quiz_service import QuizGenerationService # AI 강사 페르소나의 퀴즈 생성 서비스 임포트
 from pydantic import BaseModel # 데이터 요청 규격을 정의하기 위한 Pydantic BaseModel 임포트
-from app.schemas.essay_generation import EssayEvaluationResponse # 심화 논술 평가 응답 스키마 임포트
+from backend.app.schemas.essay_generation import EssayEvaluationResponse # 심화 논술 평가 응답 스키마 임포트
 
 router = APIRouter() # '/api/v1/learning' 하위 경로의 모든 API를 관리할 라우터 인스턴스 생성
 

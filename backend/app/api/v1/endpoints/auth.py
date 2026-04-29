@@ -5,11 +5,11 @@ from fastapi.security import OAuth2PasswordRequestForm # 로그인 폼 처리를
 from sqlalchemy.ext.asyncio import AsyncSession # 비동기식 데이터베이스 세션 타입 임포트
 from sqlalchemy import select # 비동기 쿼리를 위한 select 임포트
 
-from app.api import deps # DB 세션 및 인증 의존성 임포트
-from app.core import security # 비밀번호 해싱 및 토큰 생성 유틸리티 임포트
-from app.core.config import settings # 시스템 설정(비밀번호 만료 등) 임포트
-from app.db.models import User # 사용자 DB 모델 임포트
-from app.schemas.auth import UserCreate, UserResponse, Token, RefreshTokenRequest, TokenData # 데이터 규격 스키마 임포트
+from backend.app.api import deps # DB 세션 및 인증 의존성 임포트
+from backend.app.core import security # 비밀번호 해싱 및 토큰 생성 유틸리티 임포트
+from backend.app.core.config import settings # 시스템 설정(비밀번호 만료 등) 임포트
+from backend.app.db.models import User # 사용자 DB 모델 임포트
+from backend.app.schemas.auth import UserCreate, UserResponse, Token, RefreshTokenRequest, TokenData # 데이터 규격 스키마 임포트
 
 router = APIRouter() # 인증 관련 API 경로를 관리할 라우터 객체 생성
 

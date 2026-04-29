@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from app.main import app
+from backend.app.main import app
 import datetime # datetime 모듈을 추가합니다. (timestamp 비교에 필요)
 
 client = TestClient(app)

@@ -1,10 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from typing import List
-from app.schemas.essay_generation import EssayGenerationRequest, EssayResponse, GenerationResultResponse, EssayEvaluationRequest, EssayEvaluationResponse
-from app.schemas.history import TypingRecordCreate, TypingRecordResponse, QuizResultCreate, QuizResultResponse
-from app.db.mongodb import AsyncIOMotorClient, get_database
-from app.crud.essay import generate_essay_data, evaluate_essay_data, save_typing_record_data, save_quiz_result_data
-from app.core.logging import get_logger # get_logger 함수를 임포트합니다.
+from backend.app.schemas.essay_generation import EssayGenerationRequest, EssayResponse, GenerationResultResponse, EssayEvaluationRequest, EssayEvaluationResponse
+from backend.app.schemas.history import TypingRecordCreate, TypingRecordResponse, QuizResultCreate, QuizResultResponse
+from backend.app.core.logging import get_logger # get_logger 함수를 임포트합니다.
 
 router = APIRouter()
 logger = get_logger(__name__) # 로거 인스턴스 가져오기

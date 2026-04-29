@@ -4,7 +4,7 @@
 
 from sqlalchemy import Column, Integer, String, DateTime, func, Text, ForeignKey, Float, Boolean # SQLAlchemy 컬럼 및 타입
 from sqlalchemy.orm import relationship, backref # 관계형 모델 설정을 위한 도구
-from backend.app.db.database import Base # [수정] base.py에서 정의된 통합 Base 클래스를 임포트합니다.
+from backend.app.db.base import Base # [수정] base.py에서 정의된 통합 Base 클래스를 임포트합니다.
 
 # 에세이(Essay) 모델 정의
 class Essay(Base):

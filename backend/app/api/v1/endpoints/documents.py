@@ -2,12 +2,12 @@
 import uuid # 고유 ID 생성을 위한 uuid 모듈 임포트
 from fastapi import APIRouter, Depends, File, UploadFile, HTTPException, status # FastAPI 관련 모듈 임포트
 from sqlalchemy.ext.asyncio import AsyncSession # 비동기 SQLAlchemy 세션을 위한 임포트
-from app.api import deps # 의존성 주입 관련 모듈 (데이터베이스 세션 등)
-from app.schemas.documents import DocumentResponse, DocumentUploadResponse # 문서 관련 Pydantic 스키마 임포트 (DocumentUploadResponse 추가 임포트)
-from app.services.document_parser import document_parser # 문서 파싱 서비스 임포트
-from app.services.rag_system import rag_system # RAG 시스템 서비스 임포트
-from app.services.learning_archive_service import LearningArchiveService # 학습 아카이브 서비스 임포트
-from app.db.models import User # 사용자 모델 임포트 (현재 사용자 정보 주입용)
+from backend.app.api import deps # 의존성 주입 관련 모듈 (데이터베이스 세션 등)
+from backend.app.schemas.documents import DocumentResponse, DocumentUploadResponse # 문서 관련 Pydantic 스키마 임포트 (DocumentUploadResponse 추가 임포트)
+from backend.app.services.document_parser import document_parser # 문서 파싱 서비스 임포트
+from backend.app.services.rag_system import rag_system # RAG 시스템 서비스 임포트
+from backend.app.services.learning_archive_service import LearningArchiveService # 학습 아카이브 서비스 임포트
+from backend.app.db.models import User # 사용자 모델 임포트 (현재 사용자 정보 주입용)
 
 # APIRouter 인스턴스를 생성하여 문서 관련 경로를 관리합니다.
 router = APIRouter()

@@ -12,8 +12,8 @@ from langchain_core.output_parsers import StrOutputParser # 문자열 출력 파
 from langchain_core.runnables import RunnableParallel # 병렬 실행을 위한 런어블 임포트
 from langchain_core.exceptions import OutputParserException # 출력 파서 예외 처리를 위한 임포트
 
-from app.core.config import settings # 설정값(API 키 등)을 가져오기 위한 임포트
-from app.services.rag_learning_service import rag_learning_service # RAG 서비스 임포트
+from backend.app.core.config import settings # 설정값(API 키 등)을 가져오기 위한 임포트
+from backend.app.services.rag_learning_service import rag_learning_service # RAG 서비스 임포트
 from fastapi import HTTPException # FastAPI HTTP 예외 처리를 위한 임포트 (evaluate_essay_answer_with_rag에서 사용)
 
 # 에세이 기본 스키마

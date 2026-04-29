@@ -1,8 +1,8 @@
 from sqlalchemy.ext.asyncio import AsyncSession # 비동기 SQLAlchemy 세션 임포트
 from sqlalchemy import select, desc # 비동기 쿼리 구성을 위한 select, 정렬을 위한 desc 임포트
 from sqlalchemy.orm import joinedload # 관계형 로딩을 위한 joinedload 임포트
-from app.db.models import Document, QuizResult, TypingRecord # 학습 이력 모델 임포트
-from app.core.cache import cache_service # Redis 캐싱 서비스를 임포트합니다.
+from backend.app.db.models import Document, QuizResult, TypingRecord # 학습 이력 모델 임포트
+from backend.app.core.cache import cache_service # Redis 캐싱 서비스를 임포트합니다.
 import json # 객체를 JSON 문자열로 직렬화/역직렬화하기 위한 임포트
 
 class LearningArchiveService:

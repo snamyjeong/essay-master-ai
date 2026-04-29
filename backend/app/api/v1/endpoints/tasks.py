@@ -2,7 +2,7 @@
 
 from fastapi import APIRouter, HTTPException # FastAPI의 APIRouter와 HTTPException을 임포트합니다.
 from starlette.responses import JSONResponse # JSON 형식의 응답을 반환하기 위한 JSONResponse를 임포트합니다.
-from app.worker.celery_worker import example_task # 정의된 비동기 작업 (example_task)을 절대 경로로 임포트합니다.
+from backend.app.worker.celery_worker import example_task # 정의된 비동기 작업 (example_task)을 절대 경로로 임포트합니다.
 import logging # 로깅을 위한 모듈을 임포트합니다.
 
 router = APIRouter() # APIRouter 인스턴스를 생성합니다.

@@ -1,7 +1,7 @@
 # backend/app/services/usage_manager.py
 from datetime import datetime, date, timedelta # 날짜 및 시간 관리를 위한 임포트
 from sqlalchemy.orm import Session # 데이터베이스 세션 관리를 위한 임포트
-from app.db.models import User # 사용자 모델 임포트 (경로 수정)
+from backend.app.db.models import User # 사용자 모델 임포트 (경로 수정)
 
 # '최고의 강의에는 정당한 대가가 따른다. 가치를 아는 유저가 1등급이 된다'는 일타 강사의 철학을 반영합니다。
 

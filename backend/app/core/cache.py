@@ -1,7 +1,7 @@
 import redis # Redis 클라이언트 라이브러리 임포트
 import json # Python 객체를 JSON 문자열로 변환하고 다시 파싱하기 위한 임포트
 from typing import Optional, Any # 타입 힌트 (선택적 값, 모든 타입)
-from app.core.config import settings # 프로젝트 설정값을 가져오기 위한 임포트
+from backend.app.core.config import settings # 프로젝트 설정값을 가져오기 위한 임포트
 
 # Redis 클라이언트 인스턴스를 전역으로 생성합니다.
 # `decode_responses=True`는 Redis에서 받아오는 바이트 데이터를 자동으로 UTF-8 문자열로 디코딩합니다.
