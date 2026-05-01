@@ -1,38 +1,39 @@
-import axios from 'axios';
+import axios from 'axios'; // HTTP 통신을 위한 axios 라이브러리 임포트
 
-// IMPORTANT: For Expo Go testing, use your computer's actual IP address instead of localhost.
-// Example: http://192.168.x.x:8000/api/v1
-const API_BASE_URL = 'http://136.111.211.8:8000/api/v1'; // 모바일 테스트를 위한 실제 IP 주소로 대체
+// [중요] 모바일(Expo) 테스트 시 서버가 기동 중인 PC의 실제 IP를 사용해야 합니다.
+const API_BASE_URL = 'http://136.111.211.8:8000/api/v1'; 
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    // [중요] 임시 인증 토큰: 401 Unauthorized 에러 해결을 위해 임시로 추가된 토큰입니다.
-    // 실제 프로덕션 환경에서는 사용자 로그인 후 동적으로 발급된 유효한 토큰을 사용해야 합니다.
-    // 예: 'Authorization': `Bearer ${userToken}` 와 같이 구현될 예정입니다.
+    // [보완 필요] 현재는 테스트용 토큰입니다. 실제 로그인 완료 후 SecureStore의 값을 주입해야 합니다.
     'Authorization': 'Bearer test-token', 
   },
 });
 
+// AI 분석 및 문제 생성 요청 함수
 export const generateLearningContent = async (text: string) => {
   try {
-    console.log('API Call: generateLearningContent with text:', text);
+    console.log('API 호출: 콘텐츠 생성 시작');
+    // 백엔드 LearningRequest(text: str) 규격에 맞춰 전송
     const response = await apiClient.post('/learning/generate-content', { text });
-    return response.data;
+    return response.data; // 서버에서 받은 퀴즈 데이터 반환
   } catch (error) {
-    console.error('Error generating learning content:', error);
+    console.error('콘텐츠 생성 실패:', error);
     throw error;
   }
 };
 
-export const evaluateEssayAnswer = async (essay: string) => {
+// 심화 논술 답안 평가 요청 함수
+export const evaluateEssayAnswer = async (question: string, answer: string) => {
   try {
-    console.log('API Call: evaluateEssayAnswer with essay:', essay);
-    const response = await apiClient.post('/learning/evaluate-essay', { essay });
-    return response.data;
+    console.log('API 호출: 논술 평가 요청');
+    // 백엔드 EssayEvaluationRequest(question, answer) 규격에 맞춰 전송
+    const response = await apiClient.post('/learning/evaluate-essay', { question, answer });
+    return response.data; // AI의 상세 피드백 반환
   } catch (error) {
-    console.error('Error evaluating essay answer:', error);
+    console.error('논술 평가 실패:', error);
     throw error;
   }
 };

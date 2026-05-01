@@ -1,120 +1,158 @@
-import React from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native'; // useRoute import
-import SoftCard from '../components/SoftCard';
-import CustomButton from '../components/CustomButton';
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet, Alert, ScrollView } from 'react-native';
+import axios from 'axios';
+import Config from 'react-native-config';
 
-// 평가 데이터 타입 정의 (선택 사항이지만 타입스크립트 사용 시 유용)
-interface EvaluationData {
-  score: number;
-  feedback: {
-    goodPoints: string;
-    improvements: string;
-  };
+const API_BASE_URL = Config.API_BASE_URL || 'http://localhost:8000'; // .env 파일에서 API 기본 URL 가져오기
+
+interface EvaluationResult {
+  overall_score: number;
+  feedback: string;
+  score_breakdown: { [key: string]: string };
+  improved_answer_example: string;
 }
 
-// RouteParams 타입 정의
-type EvaluationResultScreenRouteProp = {
-  params: {
-    evaluationData: EvaluationData;
+const EvaluationResultScreen: React.FC = () => {
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [evaluationResult, setEvaluationResult] = useState<EvaluationResult | null>(null);
+
+  const handleEvaluateEssay = async () => {
+    try {
+      const token = 'YOUR_AUTH_TOKEN'; // 실제 인증 토큰으로 대체 필요
+
+      const response = await axios.post(
+        `${API_BASE_URL}/api/v1/learning/evaluate-essay`,
+        { question, answer },
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      setEvaluationResult(response.data); // 서버 응답을 상태에 저장
+      Alert.alert('성공', '논술 평가가 완료되었습니다.');
+    } catch (error) {
+      console.error('논술 평가 실패:', error);
+      Alert.alert('오류', '논술 평가 중 오류가 발생했습니다.');
+    }
   };
-};
-
-export default function EvaluationResultScreen() {
-  const navigation = useNavigation();
-  const route = useRoute<EvaluationResultScreenRouteProp>(); // useRoute 사용
-
-  // route.params에서 evaluationData 추출 (안전하게 처리)
-  const { evaluationData } = route.params || {};
-
-  const handleGoBack = () => {
-    navigation.goBack();
-  };
-
-  // evaluationData가 없을 경우를 대비한 렌더링 처리
-  if (!evaluationData) {
-    return (
-      <View style={styles.container}>
-        <SoftCard style={styles.card}>
-          <Text style={styles.title}>오류</Text>
-          <Text style={styles.resultText}>평가 결과를 불러올 수 없습니다.</Text>
-          <CustomButton
-            title="🔙 돌아가기"
-            onPress={handleGoBack}
-            style={styles.backButton}
-          />
-        </SoftCard>
-      </View>
-    );
-  }
 
   return (
     <ScrollView style={styles.container}>
-      <SoftCard style={styles.card}>
-        {/* 기획 변경(용어 통일성): '논술'에서 '서술형 학습' 중심으로 변경 */}
-        <Text style={styles.title}>🎯 서술형 심화학습 평가 결과</Text>
-        
-        <View style={styles.resultItem}>
-          <Text style={styles.resultLabel}>🏆 총점:</Text>
-          <Text style={styles.resultValue}>{evaluationData.score}점 / 100점</Text>
-        </View>
+      <Text style={styles.title}>논술 평가</Text>
+      
+      <Text style={styles.label}>문제:</Text>
+      <TextInput
+        style={styles.textArea}
+        multiline
+        numberOfLines={5}
+        value={question}
+        onChangeText={setQuestion}
+        placeholder="AI가 출제한 논술 문제를 입력하세요..."
+      />
+      
+      <Text style={styles.label}>답안:</Text>
+      <TextInput
+        style={styles.textArea}
+        multiline
+        numberOfLines={10}
+        value={answer}
+        onChangeText={setAnswer}
+        placeholder="여기에 사용자의 논술 답안을 입력하세요..."
+      />
+      
+      <Button title="논술 평가하기" onPress={handleEvaluateEssay} />
 
-        <View style={styles.resultItem}>
-          <Text style={styles.resultLabel}>👍 잘한 점:</Text>
-          <Text style={styles.resultText}>{evaluationData.feedback.goodPoints}</Text>
-        </View>
+      {evaluationResult && (
+        <View style={styles.resultContainer}>
+          <Text style={styles.resultTitle}>평가 결과</Text>
+          <Text style={styles.resultText}><Text style={{ fontWeight: 'bold' }}>종합 점수:</Text> {evaluationResult.overall_score}점</Text>
+          <Text style={styles.resultText}><Text style={{ fontWeight: 'bold' }}>피드백:</Text> {evaluationResult.feedback}</Text>
+          
+          <Text style={styles.sectionTitle}>점수 상세:</Text>
+          {Object.entries(evaluationResult.score_breakdown).map(([key, value]) => (
+            <Text key={key} style={styles.itemText}><Text style={{ fontWeight: 'bold' }}>{key}:</Text> {value}</Text>
+          ))}
 
-        <View style={styles.resultItem}>
-          <Text style={styles.resultLabel}>🛠️ 보완할 점:</Text>
-          <Text style={styles.resultText}>{evaluationData.feedback.improvements}</Text>
+          {evaluationResult.improved_answer_example && (
+            <View>
+              <Text style={styles.sectionTitle}>모범 답안 예시:</Text>
+              <Text style={styles.itemText}>{evaluationResult.improved_answer_example}</Text>
+            </View>
+          )}
         </View>
-
-        <CustomButton
-          title="🔙 돌아가기"
-          onPress={handleGoBack}
-          style={styles.backButton}
-        />
-      </SoftCard>
+      )}
     </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F3F4F6',
     padding: 20,
-  },
-  card: {
-    // SoftCard 자체 스타일을 유지하면서 추가 여백 등을 줄 수 있습니다.
+    backgroundColor: '#f5f5f5',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 25,
+    marginBottom: 20,
     textAlign: 'center',
     color: '#333',
   },
-  resultItem: {
+  label: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#555',
+  },
+  textArea: {
+    height: 100,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 15,
+    marginBottom: 20,
+    backgroundColor: '#fff',
+    fontSize: 16,
+    lineHeight: 24,
+    textAlignVertical: 'top',
+  },
+  resultContainer: {
+    marginTop: 30,
+    padding: 20,
+    backgroundColor: '#e9f7ef',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  resultTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
     marginBottom: 15,
-  },
-  resultLabel: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#444',
-    marginBottom: 5,
-  },
-  resultValue: {
-    fontSize: 18,
-    color: '#1E90FF',
-    fontWeight: 'bold',
+    color: '#28a745',
   },
   resultText: {
     fontSize: 16,
-    color: '#555',
-    lineHeight: 24,
+    marginBottom: 8,
+    color: '#333',
   },
-  backButton: {
-    marginTop: 20,
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 15,
+    marginBottom: 10,
+    color: '#007bff',
+  },
+  itemText: {
+    fontSize: 16,
+    marginBottom: 5,
+    color: '#333',
   },
 });
+
+export default EvaluationResultScreen;

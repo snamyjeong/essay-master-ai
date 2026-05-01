@@ -96,6 +96,6 @@ async def health_check():
     return {
         "status": "online", # 서버 상태 정보
         "message": "Jarvis Neo-Genesis V3가 정상 작동 중입니다.", # 환영 메시지
-        "persona": "30년 경력 일타 강사 정성남 모드 활성화", # 활성화된 페르소나 정보
+        "persona": "30년 경력 메타 학습 전문가 모드 활성화", # 활성화된 페르소나 정보
         "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat() # 현재 UTC 시간 타임스탬프 추가
     }

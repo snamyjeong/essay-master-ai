@@ -37,7 +37,7 @@ class Settings(BaseSettings):
 
     # 3. 필수 서비스 및 보안 설정
     REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379/0")
-    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
+    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or ""
     CHROMADB_SERVER_URL: str = os.getenv("CHROMADB_SERVER_URL", "http://localhost:8000")
     
     SECRET_KEY: str = os.getenv("SECRET_KEY", "supersecretkey_jarvis_v3_1978")

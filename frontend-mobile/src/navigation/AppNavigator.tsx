@@ -1,95 +1,89 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Ionicons } from '@expo/vector-icons';
+import React from 'react'; // React 라이브러리를 임포트합니다.
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'; // 하단 탭 네비게이터 생성을 위한 라이브러리입니다.
+import { createNativeStackNavigator } from '@react-navigation/native-stack'; // 스택 네비게이터 생성을 위한 라이브러리입니다.
+import { Ionicons } from '@expo/vector-icons'; // 아이콘 사용을 위한 라이브러리입니다.
 
-// --- 스크린 임포트 ---
-import LoginScreen from '../screens/LoginScreen';
-import DashboardScreen from '../screens/DashboardScreen'; // 신규: 메인 대시보드
-import HomeScreen from '../screens/HomeScreen';           // 기존: 내용 텍스트 입력
-import UploadPdfScreen from '../screens/UploadPdfScreen'; // 신규: PDF 업로드
-import QuizListScreen from '../screens/QuizListScreen';   // 신규: 퀴즈 리스트
-import QuizScreen from '../screens/QuizScreen';           // 기존: 실제 퀴즈 풀기
-import EvaluationResultScreen from '../screens/EvaluationResultScreen'; // 기존: 평가 결과
-import TypingScreen from '../screens/TypingScreen';       // 기존: 타자 연습
+// --- 각 화면 컴포넌트 임포트 (경로 확인 필수) ---
+import LoginScreen from '../screens/LoginScreen'; // 로그인 화면
+import DashboardScreen from '../screens/DashboardScreen'; // 홈 대시보드 화면
+import HomeScreen from '../screens/HomeScreen'; // 학습입력 화면
+import QuizListScreen from '../screens/QuizListScreen'; // 학습퀴즈 목록 화면
+import TypingScreen from '../screens/TypingScreen'; // 타자연습 화면
+import ChatScreen from '../screens/ChatScreen'; // AI 상담 채팅 화면
+import UploadPdfScreen from '../screens/UploadPdfScreen'; // PDF 업로드 화면
+import QuizScreen from '../screens/QuizScreen'; // 퀴즈 풀이 화면
+import EvaluationResultScreen from '../screens/EvaluationResultScreen'; // 평가 결과 화면
 
-// 네비게이터 객체 생성
-const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator(); // 탭 네비게이터 객체 생성
+const Stack = createNativeStackNavigator(); // 스택 네비게이터 객체 생성
 
 // ---------------------------------------------------------
-// 1. 메인 하단 탭 네비게이터 (로그인 성공 후 보여질 화면들)
+// 1. 메인 하단 플로팅 탭 네비게이터 (고정형 타원 팝업 스타일)
 // ---------------------------------------------------------
 function MainTabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        headerShown: false, // 탭 내부 화면들의 상단 기본 헤더 숨김
-        tabBarActiveTintColor: '#1E90FF', // 선택된 탭의 아이콘/텍스트 색상 (블루)
-        tabBarInactiveTintColor: 'gray',  // 비활성화된 탭 색상
-        tabBarStyle: { backgroundColor: '#F3F4F6', paddingBottom: 5 }, // 탭 바 배경색을 앱 공통색으로 통일
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName: keyof typeof Ionicons.glyphMap = 'help-circle';
-
-          // 라우터 이름에 따라 하단 탭 아이콘 동적 할당
-          if (route.name === 'DashboardTab') {
-            iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'InputTab') {
-            iconName = focused ? 'create' : 'create-outline';
-          } else if (route.name === 'QuizListTab') {
-            iconName = focused ? 'library' : 'library-outline';
-          } else if (route.name === 'TypingTab') {
-            iconName = focused ? 'text' : 'text-outline';
-          }
-
-          return <Ionicons name={iconName} size={size} color={color} />;
+        headerShown: false, // 상단 헤더 숨김
+        tabBarActiveTintColor: '#1E90FF', // 활성화된 메뉴 색상 (파란색)
+        tabBarInactiveTintColor: 'gray', // 비활성화된 메뉴 색상 (회색)
+        tabBarHideOnKeyboard: true, // 🚨 [핵심 해결책] 키보드 활성화 시 메뉴바를 숨김!
+        tabBarStyle: { // 플로팅 바 스타일 정의
+          position: 'absolute', // 화면에 절대 좌표로 배치하여 스크롤에 영향받지 않게 함
+          bottom: 40, // 하단에서 40px 위로 올려 시스템 바와의 간섭 완전 제거
+          left: 15, // 왼쪽 여백
+          right: 15, // 오른쪽 여백
+          height: 65, // 메뉴 바의 세로 높이
+          borderRadius: 35, // 완전한 타원형 디자인을 위한 라운드 값
+          backgroundColor: '#FFFFFF', // 배경색 (흰색)
+          elevation: 15, // 안드로이드에서 그림자를 강하게 주어 최상단 레이어로 고정
+          shadowColor: '#000', // iOS용 그림자 색상
+          shadowOffset: { width: 0, height: 6 }, // iOS용 그림자 오프셋
+          shadowOpacity: 0.2, // iOS용 그림자 투명도
+          shadowRadius: 8, // iOS용 그림자 퍼짐 정도
+          zIndex: 1000, // 컴포넌트 계층상 가장 위에 오도록 설정
+          paddingBottom: 5, // 하단 텍스트 여백
+        },
+        tabBarLabelStyle: { fontSize: 10, fontWeight: 'bold' }, // 메뉴 글자 스타일
+        tabBarIcon: ({ focused, color, size }) => { // 탭별 아이콘 설정
+          let iconName: any;
+          if (route.name === 'DashboardTab') iconName = focused ? 'home' : 'home-outline';
+          else if (route.name === 'InputTab') iconName = focused ? 'create' : 'create-outline';
+          else if (route.name === 'QuizListTab') iconName = focused ? 'library' : 'library-outline';
+          else if (route.name === 'TypingTab') iconName = focused ? 'text' : 'text-outline';
+          else if (route.name === 'ChatTab') iconName = focused ? 'chatbox-ellipses' : 'chatbox-ellipses-outline';
+          return <Ionicons name={iconName} size={size - 2} color={color} />;
         },
       })}
     >
-    {/* 탭 1: 대시보드 (홈) - 중복되는 이모지 제거로 세련된 UI 확보 */}
-    <Tab.Screen name="DashboardTab" component={DashboardScreen} options={{ title: '홈' }} />
-    {/* 탭 2: 텍스트 직접 입력 - 중복되는 이모지 제거 */}
-    <Tab.Screen name="InputTab" component={HomeScreen} options={{ title: '학습입력' }} />
-    {/* 탭 3: 내 퀴즈 목록 - 중복되는 이모지 제거 */}
-    <Tab.Screen name="QuizListTab" component={QuizListScreen} options={{ title: '학습퀴즈' }} />
-    {/* 탭 4: 타자 연습 - 중복되는 이모지 제거 */}
-    <Tab.Screen name="TypingTab" component={TypingScreen} options={{ title: '타자연습' }} />
+      {/* 파트너님이 지시하신 순서대로 배치: 홈 -> 학습입력 -> 학습퀴즈 -> 타자연습 -> AI 상담 */}
+      <Tab.Screen name="DashboardTab" component={DashboardScreen} options={{ title: '홈' }} />
+      <Tab.Screen name="InputTab" component={HomeScreen} options={{ title: '학습입력' }} />
+      <Tab.Screen name="QuizListTab" component={QuizListScreen} options={{ title: '학습퀴즈' }} />
+      <Tab.Screen name="TypingTab" component={TypingScreen} options={{ title: '타자연습' }} />
+      <Tab.Screen name="ChatTab" component={ChatScreen} options={{ title: 'AI 상담' }} />
     </Tab.Navigator>
   );
 }
 
 // ---------------------------------------------------------
-// 2. 최상위 루트 스택 네비게이터 (앱 전체 화면 전환 담당)
+// 2. 최상위 루트 스택 네비게이터
 // ---------------------------------------------------------
 export default function AppNavigator() {
   return (
-    // 앱이 켜지면 무조건 'Login' 화면부터 시작합니다.
     <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
-      
-      {/* --- 인증 영역 --- */}
       <Stack.Screen name="Login">
         {(props) => (
           <LoginScreen 
             {...props} 
-            // 로그인 성공 시 'MainTabs'로 화면을 갈아끼웁니다 (뒤로가기 방지).
             onLoginSuccess={() => props.navigation.replace('MainTabs')} 
           />
         )}
       </Stack.Screen>
-
-      {/* --- 메인 앱 영역 (하단 탭 포함) --- */}
       <Stack.Screen name="MainTabs" component={MainTabNavigator} />
-
-      {/* --- 서브 스크린 영역 (하단 탭 없이 집중해야 하는 화면들) --- */}
-      {/* 대시보드에서 'PDF 분석' 버튼 클릭 시 넘어오는 화면 */}
       <Stack.Screen name="UploadPdf" component={UploadPdfScreen} />
-      
-      {/* 퀴즈 목록에서 특정 퀴즈 클릭 시 넘어오는 실제 풀이 화면 */}
       <Stack.Screen name="Quiz" component={QuizScreen} />
-      
-      {/* 퀴즈 제출 후 넘어오는 결과 화면 */}
       <Stack.Screen name="EvaluationResult" component={EvaluationResultScreen} />
-
     </Stack.Navigator>
   );
 }
