@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; // React와 상태 관리 훅 임포트
-import { View, Text, TextInput, StyleSheet, Alert, ActivityIndicator } from 'react-native'; // 기본 UI 컴포넌트 임포트
+import { View, Text, TextInput, StyleSheet, ActivityIndicator, TouchableOpacity, Alert } from 'react-native'; // 기본 UI 컴포넌트 임포트
 import * as SecureStore from 'expo-secure-store'; // 보안 저장소 임포트
 import axiosInstance from '../api/axiosInstance'; // 설정된 Axios 인스턴스 임포트
 import SoftCard from '../components/SoftCard'; // UI 통일성을 위한 컴포넌트 임포트
@@ -68,7 +68,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
   return (
     <View style={styles.container}>
       {/* 화면 제목 (기획 변경 반영) */}
-      <Text style={styles.title}>🧠 학습 마스터 AI 로그인</Text>
+      <Text style={styles.title}>📖 학습 마스터 AI </Text>
       
       {/* 폼 전체를 SoftCard로 감싸서 다른 화면과 UI 일관성 유지 */}
       <SoftCard style={styles.card}>
@@ -100,6 +100,24 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
           disabled={isLoading} 
           style={styles.loginButton}
         />
+        {/* 추가: 계정 지원 메뉴 (회원가입 / 아이디 찾기 / 비밀번호 찾기) */}
+        <View style={styles.helperContainer}>
+          <TouchableOpacity onPress={() => Alert.alert('안내', '회원가입 화면으로 이동합니다. (준비 중)')}>
+            <Text style={styles.helperText}>회원가입</Text>
+          </TouchableOpacity>
+          
+          <Text style={styles.divider}>|</Text>
+          
+          <TouchableOpacity onPress={() => Alert.alert('안내', '아이디 찾기 화면으로 이동합니다. (준비 중)')}>
+            <Text style={styles.helperText}>아이디 찾기</Text>
+          </TouchableOpacity>
+          
+          <Text style={styles.divider}>|</Text>
+          
+          <TouchableOpacity onPress={() => Alert.alert('안내', '비밀번호 찾기 화면으로 이동합니다. (준비 중)')}>
+            <Text style={styles.helperText}>비밀번호 찾기</Text>
+          </TouchableOpacity>
+        </View>
         
         {/* 로딩 인디케이터 표시 */}
         {isLoading && <ActivityIndicator size="small" color="#fff" style={styles.loader} />}
@@ -125,6 +143,25 @@ const styles = StyleSheet.create({
   },
   loginButton: { marginTop: 10 },
   loader: { position: 'absolute', bottom: 35, alignSelf: 'center' }, // 로딩 스피너 위치 조정
+  // 계정 지원 메뉴(회원가입 등)를 가로로 나란히 중앙 정렬하는 컨테이너 스타일입니다.
+  helperContainer: {
+    flexDirection: 'row', // 가로 배치
+    justifyContent: 'center', // 중앙 정렬
+    alignItems: 'center', // 세로 높이 맞춤
+    marginTop: 25, // 로그인 버튼과 간격 띄우기
+  },
+  // 계정 지원 메뉴의 텍스트 스타일입니다. (차분한 회색조 적용)
+  helperText: {
+    fontSize: 14,
+    color: '#64748B',
+    fontWeight: '500',
+  },
+  // 계정 지원 메뉴 사이의 구분선(|) 스타일입니다.
+  divider: {
+    fontSize: 12,
+    color: '#CBD5E1', // 연한 회색
+    marginHorizontal: 12, // 좌우 여백 주어 텍스트와 분리
+  },  
 });
 
 export default LoginScreen;

@@ -8,7 +8,7 @@ const QuizListScreen = () => {
     // 스크롤이 가능하도록 ScrollView를 사용하고, 하단 여백을 주어 잘리지 않도록 설정합니다.
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       {/* 화면 제목 (기획 변경 반영) */}
-      <Text style={styles.title}>📝 학습 퀴즈 리스트</Text>
+      <Text style={styles.title}>🦉 학습 퀴즈 리스트</Text>
       
       {/* 1. Empty State: 추후 백엔드에서 받아온 데이터가 비어있을 때 보여줄 UI입니다. */}
       <SoftCard style={styles.card}>
