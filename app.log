@@ -340,3 +340,180 @@ WHERE users.id = ?
 2026-04-29 02:41:20,465 - sqlalchemy.engine.Engine - INFO - [generated in 0.00042s] (1,)
 2026-04-29 02:41:20,468 - sqlalchemy.engine.Engine - INFO - ROLLBACK
 2026-04-29 02:41:20,470 - backend.app.main - INFO - [User ID: invalid_token] Request: POST /api/v1/auth/login finished in 0.3550s. Status: 200
+2026-04-29 02:52:35,068 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 종료.
+2026-04-29 07:43:02,051 - backend.app.core.logging - INFO - 로깅 시스템 초기화 완료: '/home/snamy78/essay-master-ai/backend/app/logging.conf'에서 설정 로드.
+2026-04-29 07:43:02,123 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 시작.
+2026-04-29 07:57:12,497 - backend.app.core.logging - INFO - 로깅 시스템 초기화 완료: '/home/snamy78/essay-master-ai/backend/app/logging.conf'에서 설정 로드.
+2026-04-29 07:57:12,533 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 시작.
+2026-04-29 08:07:53,618 - backend.app.core.logging - INFO - 로깅 시스템 초기화 완료: '/home/snamy78/essay-master-ai/backend/app/logging.conf'에서 설정 로드.
+2026-04-29 08:07:53,666 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 시작.
+2026-04-29 08:38:59,287 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0016s. Status: 200
+2026-04-29 08:39:00,740 - backend.app.main - INFO - [User ID: anonymous] Request: POST /mcp finished in 0.0010s. Status: 404
+2026-04-29 08:39:00,767 - backend.app.main - INFO - [User ID: anonymous] Request: GET /sse finished in 0.0007s. Status: 404
+2026-04-29 08:39:00,817 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0011s. Status: 404
+2026-04-29 10:30:09,776 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0010s. Status: 200
+2026-04-29 10:31:25,896 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0009s. Status: 404
+2026-04-29 10:31:55,080 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0007s. Status: 200
+2026-04-29 11:57:47,648 - backend.app.core.logging - INFO - 로깅 시스템 초기화 완료: '/home/snamy78/essay-master-ai/backend/app/logging.conf'에서 설정 로드.
+2026-04-29 11:57:47,694 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 시작.
+2026-04-29 12:35:04,649 - backend.app.main - INFO - [User ID: anonymous] Request: POST /api/v1/learning/generate-content finished in 0.0086s. Status: 401
+2026-04-29 13:21:30,663 - backend.app.core.logging - INFO - 로깅 시스템 초기화 완료: '/home/snamy78/essay-master-ai/backend/app/logging.conf'에서 설정 로드.
+2026-04-29 13:21:30,711 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 시작.
+2026-04-29 13:23:44,518 - backend.app.main - INFO - [User ID: invalid_token] Request: POST /api/v1/learning/generate-content finished in 0.0318s. Status: 422
+2026-04-29 16:53:55,227 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0011s. Status: 200
+2026-04-29 16:54:03,330 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0006s. Status: 200
+2026-04-29 16:54:03,425 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0006s. Status: 404
+2026-04-29 16:54:06,477 - backend.app.main - INFO - [User ID: anonymous] Request: POST /mcp finished in 0.0005s. Status: 404
+2026-04-29 16:54:06,528 - backend.app.main - INFO - [User ID: anonymous] Request: POST /jsonrpc finished in 0.0006s. Status: 404
+2026-04-29 16:54:06,577 - backend.app.main - INFO - [User ID: anonymous] Request: POST / finished in 0.0006s. Status: 405
+2026-04-29 16:54:12,677 - backend.app.main - INFO - [User ID: anonymous] Request: GET /wiki finished in 0.0006s. Status: 404
+2026-04-29 17:58:42,042 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0009s. Status: 200
+2026-04-29 18:11:20,622 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0013s. Status: 200
+2026-04-29 18:11:20,830 - backend.app.main - INFO - [User ID: anonymous] Request: GET /awsc_probe_8f615ed321dd71306887e323 finished in 0.0007s. Status: 404
+2026-04-29 18:11:21,026 - backend.app.main - INFO - [User ID: anonymous] Request: GET /settings-local.yaml finished in 0.0011s. Status: 404
+2026-04-29 18:11:21,168 - backend.app.main - INFO - [User ID: anonymous] Request: GET /settings.yaml finished in 0.0015s. Status: 404
+2026-04-29 18:11:21,168 - backend.app.main - INFO - [User ID: anonymous] Request: GET /credentials.json finished in 0.0018s. Status: 404
+2026-04-29 18:11:21,180 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.aws/cli/cache/ finished in 0.0039s. Status: 404
+2026-04-29 18:11:21,181 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.env finished in 0.0042s. Status: 404
+2026-04-29 18:11:21,199 - backend.app.main - INFO - [User ID: anonymous] Request: GET /rclone.conf finished in 0.0056s. Status: 404
+2026-04-29 18:11:21,200 - backend.app.main - INFO - [User ID: anonymous] Request: GET /_netrc finished in 0.0059s. Status: 404
+2026-04-29 18:11:21,200 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.vault-token finished in 0.0063s. Status: 404
+2026-04-29 18:11:21,201 - backend.app.main - INFO - [User ID: anonymous] Request: GET /config.php finished in 0.0066s. Status: 404
+2026-04-29 18:11:21,202 - backend.app.main - INFO - [User ID: anonymous] Request: GET /wp-config.php.bak finished in 0.0062s. Status: 404
+2026-04-29 18:11:21,202 - backend.app.main - INFO - [User ID: anonymous] Request: GET /actuator/env finished in 0.0064s. Status: 404
+2026-04-29 18:11:21,203 - backend.app.main - INFO - [User ID: anonymous] Request: GET /wp-config.php finished in 0.0066s. Status: 404
+2026-04-29 18:11:21,203 - backend.app.main - INFO - [User ID: anonymous] Request: GET /settings-docker.yaml finished in 0.0069s. Status: 404
+2026-04-29 18:11:21,203 - backend.app.main - INFO - [User ID: anonymous] Request: GET /settings.py finished in 0.0071s. Status: 404
+2026-04-29 18:11:21,204 - backend.app.main - INFO - [User ID: anonymous] Request: GET /firebase-adminsdk.json finished in 0.0072s. Status: 404
+2026-04-29 18:11:21,204 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.azure/azureProfile.json finished in 0.0074s. Status: 404
+2026-04-29 18:11:21,204 - backend.app.main - INFO - [User ID: anonymous] Request: GET /env finished in 0.0076s. Status: 404
+2026-04-29 18:11:21,205 - backend.app.main - INFO - [User ID: anonymous] Request: GET /gcp-service-account.json finished in 0.0079s. Status: 404
+2026-04-29 18:11:21,205 - backend.app.main - INFO - [User ID: anonymous] Request: GET /local_settings.py finished in 0.0081s. Status: 404
+2026-04-29 18:11:21,205 - backend.app.main - INFO - [User ID: anonymous] Request: GET /actuator/configprops finished in 0.0084s. Status: 404
+2026-04-29 18:11:21,206 - backend.app.main - INFO - [User ID: anonymous] Request: GET /actuator/heapdump finished in 0.0086s. Status: 404
+2026-04-29 18:11:21,221 - backend.app.main - INFO - [User ID: anonymous] Request: GET /aws/config finished in 0.0051s. Status: 404
+2026-04-29 18:11:21,221 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.env.local finished in 0.0053s. Status: 404
+2026-04-29 18:11:21,222 - backend.app.main - INFO - [User ID: anonymous] Request: GET /auth.json finished in 0.0055s. Status: 404
+2026-04-29 18:11:21,222 - backend.app.main - INFO - [User ID: anonymous] Request: GET /kubeconfig finished in 0.0059s. Status: 404
+2026-04-29 18:11:21,222 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.env.dev finished in 0.0061s. Status: 404
+2026-04-29 18:11:21,224 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.dockerconfigjson finished in 0.0058s. Status: 404
+2026-04-29 18:11:21,224 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.aws/config finished in 0.0059s. Status: 404
+2026-04-29 18:11:21,224 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.env.prod finished in 0.0061s. Status: 404
+2026-04-29 18:11:21,224 - backend.app.main - INFO - [User ID: anonymous] Request: GET /aws/credentials finished in 0.0063s. Status: 404
+2026-04-29 18:11:21,225 - backend.app.main - INFO - [User ID: anonymous] Request: GET /secrets.yml finished in 0.0066s. Status: 404
+2026-04-29 18:11:21,225 - backend.app.main - INFO - [User ID: anonymous] Request: GET /home/ubuntu/.aws/credentials finished in 0.0068s. Status: 404
+2026-04-29 18:11:21,225 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.env.backup finished in 0.0069s. Status: 404
+2026-04-29 18:11:21,226 - backend.app.main - INFO - [User ID: anonymous] Request: GET /config.yml finished in 0.0071s. Status: 404
+2026-04-29 18:11:21,226 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.boto finished in 0.0074s. Status: 404
+2026-04-29 18:11:21,233 - backend.app.main - INFO - [User ID: anonymous] Request: GET /root/.aws/credentials finished in 0.0026s. Status: 404
+2026-04-29 18:11:21,233 - backend.app.main - INFO - [User ID: anonymous] Request: GET /docker-compose.yml finished in 0.0029s. Status: 404
+2026-04-29 18:11:21,234 - backend.app.main - INFO - [User ID: anonymous] Request: GET /config.toml finished in 0.0032s. Status: 404
+2026-04-29 18:11:21,234 - backend.app.main - INFO - [User ID: anonymous] Request: GET /secrets.yaml finished in 0.0034s. Status: 404
+2026-04-29 18:11:21,234 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.aws/boto/config finished in 0.0036s. Status: 404
+2026-04-29 18:11:21,287 - backend.app.main - INFO - [User ID: anonymous] Request: GET /application.properties finished in 0.0029s. Status: 404
+2026-04-29 18:11:21,287 - backend.app.main - INFO - [User ID: anonymous] Request: GET /application-prod.yml finished in 0.0032s. Status: 404
+2026-04-29 18:11:21,288 - backend.app.main - INFO - [User ID: anonymous] Request: GET /credentials.yaml finished in 0.0034s. Status: 404
+2026-04-29 18:11:21,288 - backend.app.main - INFO - [User ID: anonymous] Request: GET /settings.json finished in 0.0036s. Status: 404
+2026-04-29 18:11:21,288 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.env.bak finished in 0.0038s. Status: 404
+2026-04-29 18:11:21,290 - backend.app.main - INFO - [User ID: anonymous] Request: GET /config/secrets.yml finished in 0.0036s. Status: 404
+2026-04-29 18:11:21,290 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.env.production finished in 0.0039s. Status: 404
+2026-04-29 18:11:21,297 - backend.app.main - INFO - [User ID: anonymous] Request: GET /connections.json finished in 0.0015s. Status: 404
+2026-04-29 18:11:21,297 - backend.app.main - INFO - [User ID: anonymous] Request: GET /config.yaml finished in 0.0016s. Status: 404
+2026-04-29 18:11:21,298 - backend.app.main - INFO - [User ID: anonymous] Request: GET /config.json finished in 0.0018s. Status: 404
+2026-04-29 18:11:21,298 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.env.development finished in 0.0020s. Status: 404
+2026-04-29 18:11:21,344 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.config/gcloud/access_tokens.db finished in 0.0084s. Status: 404
+2026-04-29 18:11:21,345 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.aws/credentials finished in 0.0082s. Status: 404
+2026-04-29 18:11:21,345 - backend.app.main - INFO - [User ID: anonymous] Request: GET /application-prod.properties finished in 0.0084s. Status: 404
+2026-04-29 18:11:21,345 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.config/rclone/rclone.conf finished in 0.0086s. Status: 404
+2026-04-29 18:11:21,347 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.config/gcloud/application_default_credentials.json finished in 0.0084s. Status: 404
+2026-04-29 18:11:21,347 - backend.app.main - INFO - [User ID: anonymous] Request: GET /local.settings.json finished in 0.0087s. Status: 404
+2026-04-29 18:11:21,348 - backend.app.main - INFO - [User ID: anonymous] Request: GET /secrets.json finished in 0.0089s. Status: 404
+2026-04-29 18:11:21,348 - backend.app.main - INFO - [User ID: anonymous] Request: GET /web.config finished in 0.0091s. Status: 404
+2026-04-29 18:11:21,348 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.aws/sso/cache/ finished in 0.0088s. Status: 404
+2026-04-29 18:11:21,349 - backend.app.main - INFO - [User ID: anonymous] Request: GET /application-production.yml finished in 0.0089s. Status: 404
+2026-04-29 18:11:21,349 - backend.app.main - INFO - [User ID: anonymous] Request: GET /service-account.json finished in 0.0091s. Status: 404
+2026-04-29 18:11:21,349 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.azure/accessTokens.json finished in 0.0093s. Status: 404
+2026-04-29 18:11:21,349 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.s3cfg finished in 0.0096s. Status: 404
+2026-04-29 18:11:21,350 - backend.app.main - INFO - [User ID: anonymous] Request: GET /heapdump finished in 0.0098s. Status: 404
+2026-04-29 18:11:21,350 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.netrc finished in 0.0100s. Status: 404
+2026-04-29 18:11:21,350 - backend.app.main - INFO - [User ID: anonymous] Request: GET /values.yaml finished in 0.0103s. Status: 404
+2026-04-29 18:11:21,351 - backend.app.main - INFO - [User ID: anonymous] Request: GET /home/ec2-user/.aws/credentials finished in 0.0105s. Status: 404
+2026-04-29 18:11:21,351 - backend.app.main - INFO - [User ID: anonymous] Request: GET /docker-compose.yaml finished in 0.0106s. Status: 404
+2026-04-29 18:11:21,351 - backend.app.main - INFO - [User ID: anonymous] Request: GET /credentials.yml finished in 0.0108s. Status: 404
+2026-04-29 18:11:21,352 - backend.app.main - INFO - [User ID: anonymous] Request: GET /key.yaml finished in 0.0113s. Status: 404
+2026-04-29 18:11:21,352 - backend.app.main - INFO - [User ID: anonymous] Request: GET /values.yml finished in 0.0116s. Status: 404
+2026-04-29 18:11:21,353 - backend.app.main - INFO - [User ID: anonymous] Request: GET /application.yml finished in 0.0119s. Status: 404
+2026-04-29 18:11:21,362 - backend.app.main - INFO - [User ID: anonymous] Request: GET /settings.yml finished in 0.0024s. Status: 404
+2026-04-29 18:11:21,363 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.config/gcloud/credentials.db finished in 0.0019s. Status: 404
+2026-04-29 18:20:13,883 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0010s. Status: 200
+2026-04-29 18:20:25,917 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0009s. Status: 200
+2026-04-29 18:20:28,387 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0007s. Status: 404
+2026-04-29 18:20:32,568 - backend.app.main - INFO - [User ID: anonymous] Request: POST /mcp finished in 0.0006s. Status: 404
+2026-04-29 18:20:32,895 - backend.app.main - INFO - [User ID: anonymous] Request: POST /jsonrpc finished in 0.0006s. Status: 404
+2026-04-29 18:20:32,997 - backend.app.main - INFO - [User ID: anonymous] Request: POST / finished in 0.0008s. Status: 405
+2026-04-29 18:20:46,298 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.well-known/security.txt finished in 0.0008s. Status: 404
+2026-04-29 21:50:16,555 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0010s. Status: 200
+2026-04-29 21:50:16,786 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-29 21:50:17,016 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0006s. Status: 404
+2026-04-29 21:50:17,225 - backend.app.main - INFO - [User ID: anonymous] Request: GET /robots.txt finished in 0.0006s. Status: 404
+2026-04-29 21:50:17,432 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.well-known/security.txt finished in 0.0006s. Status: 404
+2026-04-29 22:32:54,323 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-29 23:26:25,442 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0009s. Status: 200
+2026-04-29 23:26:33,550 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0007s. Status: 200
+2026-04-29 23:26:33,665 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0005s. Status: 404
+2026-04-29 23:26:36,724 - backend.app.main - INFO - [User ID: anonymous] Request: POST /mcp finished in 0.0006s. Status: 404
+2026-04-29 23:26:36,773 - backend.app.main - INFO - [User ID: anonymous] Request: POST /jsonrpc finished in 0.0005s. Status: 404
+2026-04-29 23:26:36,824 - backend.app.main - INFO - [User ID: anonymous] Request: POST / finished in 0.0005s. Status: 405
+2026-04-29 23:26:43,006 - backend.app.main - INFO - [User ID: anonymous] Request: GET /login finished in 0.0006s. Status: 404
+2026-04-30 03:04:54,403 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-30 03:15:03,181 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-30 03:16:03,085 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0006s. Status: 404
+2026-04-30 03:16:38,087 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-30 05:28:42,955 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-30 06:10:08,187 - backend.app.main - INFO - [User ID: anonymous] Request: GET /metrics finished in 0.0007s. Status: 404
+2026-04-30 06:27:38,130 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0009s. Status: 200
+2026-04-30 06:29:45,761 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-30 07:13:02,777 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0007s. Status: 200
+2026-04-30 07:13:03,118 - backend.app.main - INFO - [User ID: anonymous] Request: GET /v1/models finished in 0.0006s. Status: 404
+2026-04-30 07:13:03,511 - backend.app.main - INFO - [User ID: anonymous] Request: GET /openapi.json finished in 0.3188s. Status: 200
+2026-04-30 07:13:03,672 - backend.app.main - INFO - [User ID: anonymous] Request: GET /mcp finished in 0.0005s. Status: 404
+2026-04-30 07:13:03,713 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.well-known/mcp.json finished in 0.0007s. Status: 404
+2026-04-30 07:13:03,754 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.well-known/agent.json finished in 0.0006s. Status: 404
+2026-04-30 07:13:03,797 - backend.app.main - INFO - [User ID: anonymous] Request: GET /invocations finished in 0.0006s. Status: 404
+2026-04-30 07:38:37,014 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-30 09:07:15,537 - backend.app.main - INFO - [User ID: anonymous] Request: GET /metrics finished in 0.0009s. Status: 404
+2026-04-30 09:59:49,404 - backend.app.main - INFO - [User ID: anonymous] Request: GET /v1/models finished in 0.0007s. Status: 404
+2026-04-30 09:59:49,683 - backend.app.main - INFO - [User ID: anonymous] Request: GET /api/tags finished in 0.0005s. Status: 404
+2026-04-30 09:59:49,960 - backend.app.main - INFO - [User ID: anonymous] Request: GET /v1/metadata finished in 0.0005s. Status: 404
+2026-04-30 09:59:50,238 - backend.app.main - INFO - [User ID: anonymous] Request: GET /v2 finished in 0.0005s. Status: 404
+2026-04-30 12:36:29,267 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0009s. Status: 200
+2026-04-30 13:00:03,954 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-30 13:00:04,058 - backend.app.main - INFO - [User ID: anonymous] Request: GET /v1/models finished in 0.0005s. Status: 404
+2026-04-30 13:00:04,102 - backend.app.main - INFO - [User ID: anonymous] Request: GET /openapi.json finished in 0.0010s. Status: 200
+2026-04-30 13:00:04,197 - backend.app.main - INFO - [User ID: anonymous] Request: GET /mcp finished in 0.0005s. Status: 404
+2026-04-30 13:00:04,272 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.well-known/mcp.json finished in 0.0005s. Status: 404
+2026-04-30 13:00:04,338 - backend.app.main - INFO - [User ID: anonymous] Request: GET /.well-known/agent.json finished in 0.0005s. Status: 404
+2026-04-30 13:00:04,394 - backend.app.main - INFO - [User ID: anonymous] Request: GET /invocations finished in 0.0005s. Status: 404
+2026-04-30 13:26:11,876 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-30 13:26:11,971 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0007s. Status: 404
+2026-04-30 13:34:33,829 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0008s. Status: 200
+2026-04-30 18:06:40,220 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0153s. Status: 200
+2026-04-30 18:15:45,901 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0011s. Status: 200
+2026-04-30 20:28:23,838 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0137s. Status: 200
+2026-04-30 20:31:14,154 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0020s. Status: 404
+2026-04-30 21:07:42,516 - backend.app.main - INFO - [User ID: anonymous] Request: GET /metrics finished in 0.0122s. Status: 404
+2026-04-30 21:45:30,518 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0139s. Status: 200
+2026-04-30 23:50:02,994 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0130s. Status: 200
+2026-04-30 23:50:08,436 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0013s. Status: 404
+2026-04-30 23:50:15,451 - backend.app.main - INFO - [User ID: anonymous] Request: POST /mcp finished in 0.0006s. Status: 404
+2026-04-30 23:50:18,121 - backend.app.main - INFO - [User ID: anonymous] Request: POST /jsonrpc finished in 0.0015s. Status: 404
+2026-04-30 23:50:20,367 - backend.app.main - INFO - [User ID: anonymous] Request: POST / finished in 0.0008s. Status: 405
+2026-04-30 23:50:34,841 - backend.app.main - INFO - [User ID: anonymous] Request: GET /security.txt finished in 0.0018s. Status: 404
+2026-05-01 00:35:39,879 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0134s. Status: 200
+2026-05-01 00:36:44,458 - backend.app.main - INFO - [User ID: anonymous] Request: GET /favicon.ico finished in 0.0018s. Status: 404
+2026-05-01 00:37:27,472 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0021s. Status: 200
+2026-05-01 01:00:30,385 - backend.app.core.logging - INFO - 로깅 시스템 초기화 완료: '/home/snamy78/essay-master-ai/backend/app/logging.conf'에서 설정 로드.
+2026-05-01 01:00:30,436 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 시작.
+2026-05-01 01:14:17,154 - backend.app.main - INFO - [User ID: anonymous] Request: GET / finished in 0.0015s. Status: 200
+2026-05-01 01:33:37,132 - backend.app.core.logging - INFO - 로깅 시스템 초기화 완료: '/home/snamy78/essay-master-ai/backend/app/logging.conf'에서 설정 로드.
+2026-05-01 01:33:37,182 - backend.app.main - INFO - Jarvis Neo-Genesis V3 애플리케이션 시작.

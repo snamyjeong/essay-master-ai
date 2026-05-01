@@ -15,7 +15,12 @@ class Settings(BaseSettings):
     # 1. API 및 프로젝트 기본 설정
     API_V1_STR: str = "/api/v1" # API 접두어 경로입니다.
     PROJECT_NAME: str = "Jarvis Neo-Genesis V3" # 프로젝트 명칭입니다.
-    
+
+    # .env 파일에 DEBUG=True가 설정되면 True로 로드됩니다. 마스터 토큰 활성화를 위한 필수 조건입니다.
+    DEBUG: bool = False 
+    # 테스트 시 인증 과정을 우회할 수 있는 마스터 키입니다. 기본값은 "test-token"입니다.
+    MASTER_TOKEN: str = "test-token"
+
     # 2. 데이터베이스 설정 - 절대 경로 고정
     DATABASE_URL: str = os.getenv(
         "DATABASE_URL", 

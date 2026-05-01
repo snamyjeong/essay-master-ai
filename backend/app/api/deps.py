@@ -1,6 +1,6 @@
 # backend/app/api/deps.py
 from typing import Generator, Optional # 타입 힌트를 위한 임포트
-from fastapi import Depends, HTTPException, status # FastAPI 의존성 및 예외 처리
+from fastapi import Header, Depends, HTTPException, status # FastAPI 의존성 및 예외 처리
 from fastapi.security import OAuth2PasswordBearer # OAuth2 토큰 인증 방식 사용
 from jose import jwt, JWTError # JWT 토큰 해독을 위한 라이브러리
 from sqlalchemy.ext.asyncio import AsyncSession # [수정] 비동기식 DB 세션 타입
@@ -35,6 +35,16 @@ async def get_current_user(
     JWT 토큰을 검증하고 토큰에 담긴 유저 정보가 실제 DB에 있는지 확인하여 반환합니다.
     이 함수는 모든 '로그인 필수' API에서 가드 역할을 수행합니다.
     """
+    # [정도의 길] 개발 모드 마스터 토큰 우회 로직 추가
+    # settings.DEBUG가 True이고 토큰이 설정된 MASTER_TOKEN과 일치하면 DB 조회 없이 통과시킵니다.
+    if settings.DEBUG and token == settings.MASTER_TOKEN:
+        return User(
+            id=-1, 
+            username="dev_admin", 
+            email="dev@example.com", 
+            is_active=True
+        )
+
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="인증 정보가 유효하지 않습니다.",

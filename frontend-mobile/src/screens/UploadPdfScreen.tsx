@@ -1,7 +1,9 @@
 import React, { useState } from 'react'; // React와 상태 관리 훅 임포트
-import { View, Text, StyleSheet, Button, ActivityIndicator, Alert } from 'react-native'; // 기본 UI 컴포넌트 임포트
+import { View, Text, StyleSheet, ActivityIndicator, Alert } from 'react-native'; // 기본 UI 컴포넌트 임포트
 import * as DocumentPicker from 'expo-document-picker'; // 파일 선택을 위한 Expo 모듈
 import axiosInstance from '../api/axiosInstance'; // 백엔드 통신용 Axios 인스턴스
+import SoftCard from '../components/SoftCard'; // UI 일관성을 위한 컴포넌트 임포트
+import CustomButton from '../components/CustomButton'; // UI 일관성을 위한 컴포넌트 임포트
 
 // 컴포넌트 Props 타입 정의
 interface UploadPdfScreenProps {
@@ -32,7 +34,7 @@ const UploadPdfScreen: React.FC<UploadPdfScreenProps> = ({ onUploadSuccess }) =>
     }
   };
 
-  // 서버 업로드 핸들러
+  // 서버 업로드 핸들러 (파트너님이 작성하신 완벽한 RN FormData 로직 유지)
   const handleUploadPdf = async () => {
     if (!selectedFileUri) return;
 
@@ -53,7 +55,7 @@ const UploadPdfScreen: React.FC<UploadPdfScreenProps> = ({ onUploadSuccess }) =>
       });
 
       console.log('Upload Success:', response.data);
-      Alert.alert('성공', 'PDF가 서버로 전송되었습니다.');
+      Alert.alert('성공', 'PDF 학습 자료가 성공적으로 분석되었습니다.'); // 텍스트 기획 변경 반영
       onUploadSuccess(); // 성공 시 퀴즈 목록 화면으로 전환
     } catch (error: any) {
       console.error('Upload Error:', error.message);
@@ -65,24 +67,43 @@ const UploadPdfScreen: React.FC<UploadPdfScreenProps> = ({ onUploadSuccess }) =>
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Jarvis V3: PDF 분석</Text>
-      <Button title="PDF 파일 선택" onPress={handleChoosePdf} disabled={isLoading} />
-      {selectedFileName && (
-        <View style={styles.infoBox}>
-          <Text style={styles.fileName}>선택됨: {selectedFileName}</Text>
-          <Button title="서버로 전송" onPress={handleUploadPdf} color="#28a745" />
-        </View>
-      )}
-      {isLoading && <ActivityIndicator size="large" color="#007AFF" style={styles.loader} />}
+      {/* 화면 타이틀 기획 변경 반영 */}
+      <Text style={styles.title}>📑 PDF 학습 자료 분석</Text>
+      
+      {/* 전체를 SoftCard로 감싸서 다른 스크린과 톤앤매너 통일 */}
+      <SoftCard style={styles.card}>
+        <CustomButton 
+          title="📂 PDF 파일 선택" 
+          onPress={handleChoosePdf} 
+          disabled={isLoading} 
+        />
+        
+        {selectedFileName && (
+          <View style={styles.infoBox}>
+            <Text style={styles.fileName}>선택된 파일: {selectedFileName}</Text>
+            <CustomButton 
+              title={isLoading ? "분석 중..." : "🚀 AI 분석 시작"} 
+              onPress={handleUploadPdf} 
+              style={styles.uploadButton}
+              disabled={isLoading} 
+            />
+          </View>
+        )}
+        
+        {isLoading && <ActivityIndicator size="large" color="#007AFF" style={styles.loader} />}
+      </SoftCard>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20, backgroundColor: '#fff' },
-  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 30 },
-  infoBox: { marginTop: 20, alignItems: 'center' },
-  fileName: { marginBottom: 15, fontSize: 16, color: '#555' },
+  // 배경색을 다른 화면과 동일한 #F3F4F6으로 변경
+  container: { flex: 1, justifyContent: 'center', padding: 20, backgroundColor: '#F3F4F6' },
+  title: { fontSize: 26, fontWeight: 'bold', marginBottom: 30, textAlign: 'center', color: '#333' },
+  card: { padding: 20, alignItems: 'center' },
+  infoBox: { marginTop: 25, alignItems: 'center', width: '100%' },
+  fileName: { marginBottom: 15, fontSize: 16, color: '#555', fontWeight: '500' },
+  uploadButton: { backgroundColor: '#28a745', width: '100%' }, // 업로드 버튼은 강조를 위해 초록색 계열 사용
   loader: { marginTop: 20 },
 });
 

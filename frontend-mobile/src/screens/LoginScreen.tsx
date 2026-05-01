@@ -1,7 +1,9 @@
 import React, { useState } from 'react'; // React와 상태 관리 훅 임포트
-import { View, Text, TextInput, Button, StyleSheet, Alert, ActivityIndicator } from 'react-native'; // 기본 UI 컴포넌트 임포트
+import { View, Text, TextInput, StyleSheet, Alert, ActivityIndicator } from 'react-native'; // 기본 UI 컴포넌트 임포트
 import * as SecureStore from 'expo-secure-store'; // 보안 저장소 임포트
 import axiosInstance from '../api/axiosInstance'; // 설정된 Axios 인스턴스 임포트
+import SoftCard from '../components/SoftCard'; // UI 통일성을 위한 컴포넌트 임포트
+import CustomButton from '../components/CustomButton'; // UI 통일성을 위한 컴포넌트 임포트
 
 // 로그인 성공 시 호출될 콜백 함수 타입 정의
 interface LoginScreenProps {
@@ -65,47 +67,64 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
 
   return (
     <View style={styles.container}>
-      {/* 화면 제목 */}
-      <Text style={styles.title}>Jarvis V3 로그인</Text>
+      {/* 화면 제목 (기획 변경 반영) */}
+      <Text style={styles.title}>🧠 학습 마스터 AI 로그인</Text>
       
-      {/* 이메일 입력 필드 */}
-      <TextInput
-        style={styles.input}
-        placeholder="이메일(ID)"
-        value={email}
-        onChangeText={setEmail}
-        autoCapitalize="none" // 첫 글자 자동 대문자 방지
-        keyboardType="email-address" // 이메일 입력에 최적화된 키보드 타입
-      />
-      
-      {/* 비밀번호 입력 필드 */}
-      <TextInput
-        style={styles.input}
-        placeholder="비밀번호"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry // 입력 내용 마스킹 처리
-      />
-      
-      {/* 로그인 실행 버튼 - 로딩 중에는 클릭 비활성화 */}
-      <Button 
-        title={isLoading ? "로그인 중..." : "진행시켜"} 
-        onPress={handleLogin} 
-        disabled={isLoading} 
-      />
-      
-      {/* 로딩 인디케이터 표시 */}
-      {isLoading && <ActivityIndicator size="small" color="#0000ff" style={styles.loader} />}
+      {/* 폼 전체를 SoftCard로 감싸서 다른 화면과 UI 일관성 유지 */}
+      <SoftCard style={styles.card}>
+        {/* 이메일 입력 필드 */}
+        <TextInput
+          style={styles.input}
+          placeholder="이메일(ID)"
+          value={email}
+          onChangeText={setEmail}
+          autoCapitalize="none" // 첫 글자 자동 대문자 방지
+          keyboardType="email-address" // 이메일 입력에 최적화된 키보드 타입
+          placeholderTextColor="#999" // 플레이스홀더 색상 지정
+        />
+        
+        {/* 비밀번호 입력 필드 */}
+        <TextInput
+          style={styles.input}
+          placeholder="비밀번호"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry // 입력 내용 마스킹 처리
+          placeholderTextColor="#999"
+        />
+        
+        {/* 로그인 실행 버튼 - 시그니처 문구 유지 및 CustomButton 적용 */}
+        <CustomButton 
+          title={isLoading ? "로그인 중..." : "진행시켜"} 
+          onPress={handleLogin} 
+          disabled={isLoading} 
+          style={styles.loginButton}
+        />
+        
+        {/* 로딩 인디케이터 표시 */}
+        {isLoading && <ActivityIndicator size="small" color="#fff" style={styles.loader} />}
+      </SoftCard>
     </View>
   );
 };
 
 // 화면 스타일 정의
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', padding: 30, backgroundColor: '#fff' },
-  title: { fontSize: 28, fontWeight: 'bold', marginBottom: 40, textAlign: 'center' },
-  input: { borderWidth: 1, borderColor: '#ddd', padding: 15, marginBottom: 15, borderRadius: 8 },
-  loader: { marginTop: 20 },
+  // 앱 전체 공통 배경색(#F3F4F6)으로 변경하여 통일감 부여
+  container: { flex: 1, justifyContent: 'center', padding: 20, backgroundColor: '#F3F4F6' },
+  title: { fontSize: 28, fontWeight: 'bold', marginBottom: 40, textAlign: 'center', color: '#333' },
+  card: { padding: 25 }, // 내부 컴포넌트 여백
+  input: { 
+    borderWidth: 1, 
+    borderColor: '#E0E0E0', 
+    padding: 15, 
+    marginBottom: 15, 
+    borderRadius: 10, 
+    backgroundColor: '#fff',
+    fontSize: 16 
+  },
+  loginButton: { marginTop: 10 },
+  loader: { position: 'absolute', bottom: 35, alignSelf: 'center' }, // 로딩 스피너 위치 조정
 });
 
 export default LoginScreen;
